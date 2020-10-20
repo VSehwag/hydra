@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Project Webpage</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: "HelveticaNeue-Light", Helvetica, sans-serif;
+      font-size: 16px;
+      line-height: 22px;
+    }
+
+    h1 {
+      line-height: 1.3em;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /* CSS for major elements */
+    .toprule {
+      margin-top: 0px;
+      border: 0;
+      height: 8px;
+      background: #008dcd;
+    }
+
+    .container {
+      max-width: 950px;
+      margin: 0px auto;
+    }
+
+    .container h1 {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 2em;
+    }
+
+    .container p {
+      text-align: center;
+      font-size: 1.2em;
+    }
+
+    .container p a {
+      margin: 20px;
+      text-decoration: none;
+    }
+
+    .flexcontainer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .flexcontainer .author {
+      margin: 10px 20px;
+    }
+
+    .section-divider {
+      border: 0;
+      height: 0;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      margin: 20px 0px;
+    }
+
+    .image-container {
+      width: 90%;
+      margin: 10px auto;
+      text-align: center;
+    }
+
+    .image-container img {
+      width: 70%;
+    }
+
+    .image-container .caption {
+      font-style: oblique;
+      text-align: left;
+    }
+
+    .rel-work-list li {
+      margin: 10px, auto;
+      padding: 5px 10px;
+    }
+
+    pre,
+    code {
+      font-size: 0.9em;
+      border: 1px solid #e8e8e8;
+      border-radius: 3px;
+      background-color: #eef;
+    }
+
+    pre {
+      padding: 5px 10px;
+      overflow-x: auto;
+    }
+
+    .bottomrule {
+      margin-bottom: 0px;
+      border: 0;
+      height: 8px;
+      background: #008dcd;
+    }
+  </style>
+
+  <body>
+    <hr class="toprule" />
+
+    <div class="top container">
+      <h1>HYDRA: Pruning Adversarially Robust Neural Networks</h1>
+      <div class="flexcontainer">
+        <div class="author">
+          Vikash Sehwag <br />
+          Princeton Universiery
+        </div>
+        <div class="author">
+          Shiqi Wang<br />
+          Columbia Universiery
+        </div>
+        <div class="author">
+          Prateek Mittal <br />
+          Princeton Universiery
+        </div>
+        <div class="author">
+          Suman Jana<br />
+          Columbia Universiery
+        </div>
+      </div>
+      <div class="flexcontainer">
+        <div class="author">
+          <a href="https://neurips.cc/">NeurIPS</a> 2020 (short version in
+          <a href="https://trustworthyiclr20.github.io/"
+            >ICLR workshop on Trustworthy ML</a
+          >
+          2020)
+        </div>
+      </div>
+      <p class="links">
+        <span><a href="https://arxiv.org/abs/2002.10509">Pdf</a></span>
+        <span
+          ><a href="https://github.com/inspire-group/compactness-robustness"
+            >Code</a
+          ></span
+        >
+        <span
+          ><a
+            href="https://docs.google.com/presentation/d/1yLSnvUR5MFhv-Dp2yuQEF1QuFNffTSomUGuiZsZJmbY/edit?usp=sharing"
+            >Slides</a
+          ></span
+        >
+        <span
+          ><a
+            href="https://slideslive.com/38926541/on-pruning-adversarially-robust-neural-networks?ref=account-folder-46630-folders"
+            >Video</a
+          ></span
+        >
+        <span><a href="#bibtex">Bibtex</a></span>
+      </p>
+      <hr class="section-divider" />
+    </div>
+
+    <div class="content container">
+      <div class="data">
+        <div class="image-container">
+          <iframe
+            width="850"
+            height="420"
+            src="https://slideslive.com/38926541/on-pruning-adversarially-robust-neural-networks?ref=account-folder-46630-folders"
+          >
+          </iframe>
+          <!-- <img src="documents/teaser.png" alt="project" /> -->
+        </div>
+        <h2>Overview</h2>
+        In safety-critical but computationally resource-constrained
+        applications, deep learning faces two key challenges: lack of robustness
+        against adversarial attacks and large neural network size (often
+        millions of parameters). While the research community has extensively
+        explored the use of robust training and network pruning independently to
+        address one of these challenges, only a few recent works have studied
+        them jointly. However, these works inherit a heuristic pruning strategy
+        that was developed for benign training, which performs poorly when
+        integrated with robust training techniques, including adversarial
+        training and verifiable robust training. To overcome this challenge, we
+        propose to make pruning techniques aware of the robust training
+        objective and let the training objective guide the search for which
+        connections to prune. We realize this insight by formulating the pruning
+        objective as an empirical risk minimization problem which is solved
+        efficiently using SGD. We demonstrate that our approach, titled HYDRA,
+        achieves compressed networks with state-of-the-art benign and robust
+        accuracy, simultaneously. We demonstrate the success of our approach
+        across CIFAR-10, SVHN, and ImageNet dataset with four robust training
+        techniques: iterative adversarial training, randomized smoothing,
+        MixTrain, and CROWN-IBP. We also demonstrate the existence of highly
+        robust sub-networks within non-robust networks. Our code and compressed
+        networks are publicly available at
+        <a href="github.com/inspire-group/compactness-robustness"
+          >github.com/inspire-group/compactness-robustness</a
+        >.
+      </div>
+      <hr class="section-divider" />
+      <div class="content container">
+        <h2>Other related works</h2>
+        <div class="rel-work-list">
+          <ul>
+            <li>
+              <a href="https://arxiv.org/abs/1906.06110"
+                >Towards Compact and Robust Deep Neural Networks</a
+              >
+              <br />
+              Vikash Sehwag, Shiqi Wang, Prateek Mittal, Suman Jana; Arixv 2019.
+            </li>
+            <li>
+              <a href="https://arxiv.org/abs/1807.04975"
+                >Model Compression with Adversarial Robustness: A Unified
+                Optimization Framework</a
+              >
+              <br />
+              Shupeng Gui, Haotao Wang, Haichuan Yang, Chen Yu, Zhangyang Wang
+              and Ji Liu; NeurIPS 2019.
+            </li>
+          </ul>
+        </div>
+        <hr class="section-divider" />
+      </div>
+      <div class="content container">
+        <h2 id="bibtex">Bibtex</h2>
+        <div class="data">
+          <pre>
+@article{sehwag2020hydraPruning,
+  title={HYDRA: Pruning Adversarially Robust Neural Networks},
+  author={Sehwag, Vikash and Wang, Shiqi and Mittal, Prateek and Jana, Suman},
+  booktitle={Advances in Neural Information Processing Systems (to appear)},
+  year={2020}
+}</pre
+          >
+        </div>
+      </div>
+    </div>
+    <hr class="bottomrule" />
+  </body>
+</head>
